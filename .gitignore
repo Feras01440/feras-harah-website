@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+/.pnpm-store/
+/.pnp
+.pnp.*
+
+# Next.js and generated output
+/.next/
+/out/
+/build/
+/dist/
+*.tsbuildinfo
+
+# Tests and tooling
+/coverage/
+.eslintcache
+.turbo/
+
+# Local environment files (the example contains public documentation only)
+.env*
+!.env.example
+
+# Deployment providers
+.vercel/
+.netlify/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local certificates and operating-system/editor files
+*.pem
+*.key
+*.p12
+*.pfx
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
