@@ -33,7 +33,7 @@ export default function OpenGraphImage() {
             textTransform: "uppercase",
           }}
         >
-          Software Engineering · QUB
+          Software Engineering · Belfast
         </span>
         <span style={{ color: "#8994ff", fontSize: 34 }}>FH.</span>
       </div>
@@ -42,7 +42,7 @@ export default function OpenGraphImage() {
           Feras Harah.
         </span>
         <span style={{ color: "#a5aab5", fontSize: 28, marginTop: 32 }}>
-          Building skills, useful software, and a space to share the journey.
+          Building useful software — looking for a 2026–27 industrial placement.
         </span>
       </div>
       <div style={{ background: "#8994ff", height: 5, width: 130 }} />

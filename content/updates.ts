@@ -5,6 +5,38 @@ export const updatesIntro =
 
 export const updates = [
   {
+    slug: "placement-search-2026",
+    title: "Placement season, open for business",
+    excerpt:
+      "I’m applying for 2026–27 industrial placements. Here’s what to look at first.",
+    body: [
+      "I’m applying for 2026–27 industrial placements as part of my Software Engineering degree at Queen’s. This site exists so companies can see the work itself, not just the CV.",
+      "If you’re reading this because a CV or application pointed you here: the projects page is the best two minutes you can spend, and my inbox is open.",
+    ],
+    category: "site",
+    dateLabel: "July 2026",
+    publishedAt: "2026-07-12",
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
+  },
+  {
+    slug: "cataloguing-a-whole-shop",
+    title: "Cataloguing an entire shop, one product at a time",
+    excerpt:
+      "The hardest part of building an online store isn’t the store — it’s the data.",
+    body: [
+      "Basha Pantry — the Shopify store I’m building for WoodHouse Groceries — has taught me a lesson no tutorial mentions: the storefront is the easy bit. The real work is turning hundreds of physical products into clean data: consistent names, sensible categories, decent photos, accurate details.",
+      "It’s slow, unglamorous, and exactly the kind of work that makes the difference between a store that looks like a hobby and one that looks like a business. More on this when it launches.",
+    ],
+    category: "project",
+    dateLabel: "July 2026",
+    publishedAt: "2026-07-12",
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
+  },
+  {
     slug: "building-this-space",
     title: "Building this space",
     excerpt:
@@ -14,57 +46,10 @@ export const updates = [
       "I’ll add more when it is ready rather than filling the space with invented detail.",
     ],
     category: "site",
-    dateLabel: "Current",
+    dateLabel: "June 2026",
     publicationStatus: "published",
     published: true,
     isPlaceholder: false,
-  },
-  {
-    slug: "learning-log-template",
-    title: "Add a learning note",
-    excerpt:
-      "Summarise one real topic, why it mattered, and what changed in Feras’s understanding.",
-    body: [
-      "Replace this paragraph with a short, personal reflection written from genuine experience.",
-    ],
-    category: "learning",
-    dateLabel: "Add date",
-    replacementNote:
-      "Use a real date and avoid presenting general reference material as a personal experience.",
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
-  },
-  {
-    slug: "project-update-template",
-    title: "Add a project update",
-    excerpt:
-      "Explain what changed in a real project and the next useful step.",
-    body: [
-      "Replace this copy with a factual update, including limitations or unfinished work where relevant.",
-    ],
-    category: "project",
-    dateLabel: "Add date",
-    replacementNote: "Link to the project only when a valid public destination exists.",
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
-  },
-  {
-    slug: "community-note-template",
-    title: "Add a community note",
-    excerpt:
-      "Share a confirmed contribution without exposing someone else’s private information.",
-    body: [
-      "Replace this copy with an appropriately scoped reflection and obtain permission before naming people or organisations.",
-    ],
-    category: "community",
-    dateLabel: "Add date",
-    replacementNote:
-      "Keep identifying details private unless they are intentionally public and approved.",
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
   },
 ] as const satisfies readonly Update[];
 

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 
 import { Footer } from "@/components/footer";
@@ -8,7 +9,29 @@ import { getSiteUrl } from "@/lib/metadata";
 
 import "./globals.css";
 
+// Self-hosted at build time; no request leaves the site's origin at runtime.
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
 const themeInitScript = `try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t}catch(e){}`;
+
+// Static, reviewed content only — visitor input never reaches this JSON.
+const personJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  givenName: profile.givenName,
+  familyName: profile.familyName,
+  affiliation: {
+    "@type": "CollegeOrUniversity",
+    name: profile.university,
+  },
+  url: getSiteUrl().toString(),
+  sameAs: ["https://github.com/Feras01440"],
+});
 
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
@@ -49,11 +72,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en-GB" suppressHydrationWarning>
+    <html lang="en-GB" className={inter.variable} suppressHydrationWarning>
       <head>
         <script id="theme-init">{themeInitScript}</script>
+        <script type="application/ld+json">{personJsonLd}</script>
       </head>
-      <body>
+      {/* suppressHydrationWarning: browser extensions like Grammarly inject
+          attributes into <body> before React hydrates. */}
+      <body suppressHydrationWarning>
         <a
           href="#main-content"
           className="fixed left-4 top-3 z-[100] -translate-y-24 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-canvas transition focus:translate-y-0"

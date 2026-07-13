@@ -25,7 +25,7 @@ export default function AboutPage() {
   return (
     <PageShell
       eyebrow="About / Feras Harah"
-      title="Growing into the work, one useful step at a time."
+      title="The person behind the projects."
       description={profile.about.introduction}
       aside={<div className="border-l-2 border-accent pl-5"><p className="eyebrow text-accent">Working principle</p><p className="mt-3 text-sm leading-7 text-muted">{profile.principle}</p></div>}
     >

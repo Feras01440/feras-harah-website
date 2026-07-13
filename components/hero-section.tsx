@@ -60,15 +60,15 @@ export function HeroSection() {
             <dl className="mt-7 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line">
               <div className="bg-canvas p-4">
                 <dt className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-subtle">
-                  Study
+                  Seeking
                 </dt>
-                <dd className="mt-2 text-sm font-semibold text-ink">Year 03</dd>
+                <dd className="mt-2 text-sm font-semibold text-ink">Placement 2026–27</dd>
               </div>
               <div className="bg-canvas p-4">
                 <dt className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-subtle">
-                  Focus
+                  Based in
                 </dt>
-                <dd className="mt-2 text-sm font-semibold text-ink">Growing</dd>
+                <dd className="mt-2 text-sm font-semibold text-ink">Belfast, NI</dd>
               </div>
             </dl>
           </aside>

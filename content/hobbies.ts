@@ -1,57 +1,91 @@
 import type { Hobby } from "./types";
 
 export const hobbiesIntro =
-  "Software is only one part of this space. Over time, I’ll also use it to share creative interests, useful experiments, and things I enjoy learning.";
+  "Software is only one part of the picture. This is the rest of it — the things that keep me curious away from the keyboard.";
 
 export const hobbiesEmptyState =
   "I’ll use this space for creative interests, media, and personal experiments when there is something worth sharing.";
 
 export const hobbies = [
   {
-    id: "creative-interest-template",
-    title: "Add a creative interest",
+    id: "drone-videography",
+    title: "Drone videography & photography",
     description:
-      "Describe a real creative interest and what Feras enjoys about it in one or two natural sentences.",
+      "I fly a drone for landscape video and photography — planning shots, flying them cleanly, and editing the results. There’s a surprising overlap with engineering: preparation, constraints, and patience.",
     category: "creative",
-    replacementNote:
-      "Replace this template only with something Feras has confirmed he wants to share.",
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
   },
   {
-    id: "editing-media-template",
-    title: "Add an editing or media interest",
+    id: "languages",
+    title: "Three languages, still counting",
     description:
-      "Explain the real format, tools, or type of media work without implying professional experience unless confirmed.",
-    category: "media",
-    replacementNote:
-      "Add a public example only when Feras owns it or has permission to share it.",
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
-  },
-  {
-    id: "technology-experiment-template",
-    title: "Add a technology experiment",
-    description:
-      "Share a small experiment, what sparked it, and what Feras discovered.",
-    category: "technology",
-    replacementNote: "Keep this distinct from a full portfolio project where appropriate.",
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
-  },
-  {
-    id: "learning-interest-template",
-    title: "Add something Feras enjoys learning",
-    description:
-      "Describe a genuine interest outside or alongside formal software engineering study.",
+      "I grew up speaking Arabic, English, and Turkish, and I keep working at all three. Switching between them daily is probably why picking up new programming languages doesn’t scare me.",
     category: "learning",
-    replacementNote: "Review this entry periodically so it remains current.",
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
+  },
+  {
+    id: "robotics-hardware",
+    title: "Robotics & hardware",
+    description:
+      "Member of the Queen’s Robotics Club. I’ve built PCs, and I like projects that reach outside the screen — Arduino, Raspberry Pi, and whatever needs wiring next.",
+    category: "technology",
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
+  },
+  {
+    id: "chess",
+    title: "Chess",
+    description:
+      "Chess punishes lazy thinking and rewards patience — the same muscles debugging uses. I play to keep both sharp.",
+    category: "learning",
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
+  },
+  {
+    id: "gaming",
+    title: "Gaming",
+    description:
+      "Games are part of why I code. ReignFall and Greenopoly exist because building a game turned out to be even more fun than playing one.",
+    category: "technology",
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
+  },
+  {
+    id: "ai-and-new-tech",
+    title: "AI & new technology",
+    description:
+      "I follow AI and new tools closely and actually use them — carefully — in my own workflow. The interesting question is never the demo; it’s what the tool changes about how you work.",
+    category: "technology",
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
+  },
+  {
+    id: "football",
+    title: "Playing football",
+    description:
+      "Five-a-side or full pitch, I’m in. Football is where I switch off — and a good reminder that a team that talks beats a team of individuals, on grass or in a codebase.",
+    category: "sport",
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
+  },
+  {
+    id: "swimming",
+    title: "Swimming",
+    description:
+      "My reset button. A stubborn bug has quietly solved itself more than once somewhere around length twenty.",
+    category: "sport",
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
   },
 ] as const satisfies readonly Hobby[];
 

@@ -18,8 +18,8 @@ export function MotionWrapper({
 
   return (
     <motion.div
-      initial={reduceMotion ? false : { opacity: 1, y: 12 }}
-      whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+      initial={reduceMotion ? false : { y: 12 }}
+      whileInView={reduceMotion ? undefined : { y: 0 }}
       viewport={{ once: true, amount: 0.18 }}
       transition={{ duration: 0.48, delay, ease: [0.22, 1, 0.36, 1] }}
       className={cn(className)}

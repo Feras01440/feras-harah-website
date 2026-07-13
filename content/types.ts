@@ -54,7 +54,7 @@ export interface Profile {
     introduction: string;
     background: string;
     growthNote: string;
-    interests: readonly string[];
+    interests: readonly PersonalValue[];
   }>;
   readonly values: readonly PersonalValue[];
   readonly principle: string;
@@ -147,7 +147,12 @@ export type Update = ContentEntry<{
   readonly replacementNote?: string;
 }>;
 
-export type HobbyCategory = "creative" | "media" | "technology" | "learning";
+export type HobbyCategory =
+  | "creative"
+  | "media"
+  | "technology"
+  | "learning"
+  | "sport";
 
 export type Hobby = ContentEntry<{
   readonly id: string;

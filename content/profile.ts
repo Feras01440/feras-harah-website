@@ -4,60 +4,76 @@ export const profile = {
   name: "Feras Harah",
   givenName: "Feras",
   familyName: "Harah",
-  role: "Software Engineering Student at Queen’s University Belfast",
+  role: "Software Engineering Student",
   course: "Software Engineering",
   university: "Queen’s University Belfast",
   yearOfStudy: 3,
-  eyebrow: "Software Engineering · Queen’s University Belfast",
+  eyebrow: "Software Engineering · Belfast",
   heroIntro:
-    "I’m a third-year Software Engineering student developing practical skills through university work, personal projects, and careful experimentation. I’m interested in useful digital tools, thoughtful engineering, and becoming a stronger developer through consistent practice.",
+    "I build practical software: an online store for a local grocery business, database-driven games with my university team, and the site you’re reading now. I’m a Software Engineering student at Queen’s University Belfast, looking for a 2026–27 industrial placement where I can do more of this.",
   currentChapter:
-    "Shaping this website into a long-term home for projects, learning notes, and the parts of my work and interests that are worth sharing.",
+    "Heading into my placement year at Queen’s: applying to companies for 2026–27, sharpening my Java and C++, and going deeper on data structures and algorithms.",
   about: {
     introduction:
-      "I’m Feras, a third-year Software Engineering student at Queen’s University Belfast. I’m developing my skills through university work, personal projects, and practical experiments—and trying to become more deliberate about how I design, build, and explain software.",
+      "I’m Feras — curious by default, practical by habit. I speak three languages (Arabic, English, and Turkish), and I got hooked on software at school, when a revision quiz I wrote in C# ended up being used by GCSE students preparing for their exams. Making something that other people actually used changed how I saw programming, and I’ve been chasing that feeling since.",
     background:
-      "My degree is helping me build a foundation in both the technical and collaborative sides of software development, while personal projects give me space to experiment, make mistakes, and understand ideas more deeply.",
+      "I’m studying Software Engineering with placement at Queen’s University Belfast, graduating in 2028. In two years I’ve shipped a database-driven text-adventure game with a six-person team, built a climate-change board game in C++, and started building a real online store for a local business. Alongside study I’ve delivered for Amazon Flex and worked weekend shifts in a busy restaurant — work that taught me plenty about showing up and dealing with people.",
     growthNote:
-      "I’m still growing as a developer. I care less about pretending to know everything and more about asking useful questions, responding well to feedback, and improving the quality of what I build over time.",
+      "I don’t pretend to know everything. What I can promise is that I ask good questions, take feedback seriously, and the things I build get noticeably better each time.",
     interests: [
-      "Useful digital tools",
-      "Thoughtful web experiences",
-      "Software engineering practice",
-      "Practical experimentation",
+      {
+        title: "Full-stack web development",
+        description:
+          "From a Shopify storefront for a real shop to this hand-built Next.js site — I like owning the whole thing, front to back.",
+      },
+      {
+        title: "Databases & data-driven apps",
+        description:
+          "Save systems, analytics pages, booking systems — most of my projects end up being database design in disguise.",
+      },
+      {
+        title: "Games with a purpose",
+        description:
+          "ReignFall and Greenopoly taught me more about state, persistence, and teamwork than any tutorial could.",
+      },
+      {
+        title: "Hardware & robotics",
+        description:
+          "Queen’s Robotics Club member. I’ve built PCs and tinker with Arduino and Raspberry Pi when a project needs to touch the real world.",
+      },
     ],
   },
   values: [
     {
       title: "Learn with intention",
       description:
-        "Understand the reasoning behind an approach instead of stopping at the first working answer.",
+        "Understand why an approach works instead of stopping at the first answer that runs.",
     },
     {
       title: "Stay consistent",
       description:
-        "Make steady progress and treat improvement as something built over time.",
+        "Small, steady progress beats bursts of motivation. Improvement is built, not found.",
     },
     {
       title: "Make room for creativity",
       description:
-        "Explore different ideas while keeping the outcome clear and useful.",
+        "Explore odd ideas — then keep whatever actually makes the result clearer or more useful.",
     },
     {
       title: "Help where I can",
       description:
-        "Share useful knowledge and use technical skills in ways that support other people.",
+        "Skills matter most when they solve someone else’s problem, not just my own.",
     },
     {
       title: "Build useful things",
       description:
-        "Focus on real needs and leave the result more helpful than it was before.",
+        "Start from a real need, and leave things more helpful than I found them.",
     },
   ],
-  principle: "Keep learning, build carefully, and make the result useful.",
+  principle: "Keep learning, build things properly, and make them count.",
   contact: {
     introduction:
-      "If you’d like to talk about an opportunity, a project, or something I’m learning, you’ll be able to reach me through the public details listed here.",
+      "Whether it’s a placement opportunity, a project, or a question about something I’ve built — my inbox is open, and I reply.",
     unavailableMessage:
       "Public contact details are being finalised. Until then, this site does not collect messages or publish an unverified address.",
     methods: [
@@ -65,41 +81,40 @@ export const profile = {
         id: "public-email",
         kind: "email",
         label: "Email",
-        replacementNote:
-          "Add a dedicated public email address and a mailto URL before publishing this method.",
-        publicationStatus: "template",
-        published: false,
-        isPlaceholder: true,
+        displayValue: "feras07hrh@gmail.com",
+        href: "mailto:feras07hrh@gmail.com",
+        publicationStatus: "published",
+        published: true,
+        isPlaceholder: false,
       },
       {
         id: "github",
         kind: "github",
         label: "GitHub",
-        replacementNote:
-          "Add Feras’s confirmed public GitHub profile using an https URL.",
-        publicationStatus: "template",
-        published: false,
-        isPlaceholder: true,
+        displayValue: "github.com/Feras01440",
+        href: "https://github.com/Feras01440",
+        publicationStatus: "published",
+        published: true,
+        isPlaceholder: false,
       },
       {
         id: "linkedin",
         kind: "linkedin",
         label: "LinkedIn",
         replacementNote:
-          "Add Feras’s confirmed public LinkedIn profile using an https URL.",
-        publicationStatus: "template",
+          "Feras has a LinkedIn profile but has chosen to keep it off the site for now.",
+        publicationStatus: "draft",
         published: false,
-        isPlaceholder: true,
+        isPlaceholder: false,
       },
       {
         id: "location",
         kind: "location",
         label: "Location",
-        replacementNote:
-          "Confirm whether Feras wants to publish Belfast, Northern Ireland, or another location.",
-        publicationStatus: "template",
-        published: false,
-        isPlaceholder: true,
+        displayValue: "Belfast, Northern Ireland",
+        publicationStatus: "published",
+        published: true,
+        isPlaceholder: false,
       },
     ],
   },
@@ -107,15 +122,15 @@ export const profile = {
     title: "Curriculum vitae",
     fileName: "Feras-Harah-CV.pdf",
     publicPath: "/cv/Feras-Harah-CV.pdf",
-    available: false,
+    available: true,
     summary:
-      "My CV will provide a concise overview of my education, projects, and technical development.",
+      "A two-page overview of my education, projects, and skills — the same story as this site, in the format recruiters expect.",
     unavailableMessage:
-      "The CV is being reviewed for public release. It will appear here when the PDF and its privacy details are ready.",
+      "The CV is being updated at the moment. Email me at feras07hrh@gmail.com and I’ll send you the latest version directly.",
   },
   seo: {
-    title: "Feras Harah — Software Engineering Student",
+    title: "Feras Harah — Software Engineering Student in Belfast",
     description:
-      "The personal website of Feras Harah, a third-year Software Engineering student at Queen’s University Belfast, featuring projects, learning notes, and future updates.",
+      "Software Engineering student at Queen’s University Belfast seeking a 2026–27 industrial placement. Projects include an online store for a local grocery business and database-driven web games.",
   },
 } as const satisfies Profile;

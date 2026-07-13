@@ -287,21 +287,19 @@ Before every public release:
 9. Confirm there are still no unexpected analytics, cookies, trackers, or
    third-party network requests.
 
-## Placeholders still requiring Feras's review
+## Current status and remaining setup
 
-At the time of writing, the intentionally unpublished items are:
+All content sections are filled and published: contact methods (email, GitHub,
+location), four projects, six skill groups, the timeline, hobbies, community
+items, updates, and the two-page CV PDF at `public/cv/Feras-Harah-CV.pdf`.
 
-- The production value of `NEXT_PUBLIC_SITE_URL`
-- Public email, GitHub, LinkedIn, and location details
-- `public/cv/Feras-Harah-CV.pdf`; `profile.cv.available` remains `false`
-- All named skill entries and honest confidence levels
-- Real university, stock-management, AI-tool, and web-app project details,
-  screenshots, repository URLs, and demos
-- Learning-log, project-update, and community-update entries
-- Exact degree dates and real project milestones for the timeline
-- Hobbies and personal interests Feras wants to share
-- Community/help examples, permissions, organisations, and public resource links
+Still outstanding:
 
-The personal-website project, current site update, and broad journey copy are
-published. Reconfirm the third-year status, biography, and all visible wording
-before launch so they remain current and accurate.
+- Set `NEXT_PUBLIC_SITE_URL=https://ferasharah.com` in the hosting provider's
+  environment settings for production deploys.
+- The LinkedIn contact method exists as a draft in `content/profile.ts`;
+  publish it there if Feras decides to show it.
+- The Amazon Flex entry on the CV has no dates yet; regenerate the PDF after
+  adding them.
+
+The publication-state system continues to apply to every future entry.

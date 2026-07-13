@@ -31,6 +31,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Local agent tooling
+.claude/
+
 # Local certificates and operating-system/editor files
 *.pem
 *.key

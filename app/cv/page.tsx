@@ -9,7 +9,7 @@ import { createMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createMetadata({
   title: "CV",
-  description: "The CV and career hub of Feras Harah, a third-year Software Engineering student at Queen’s University Belfast.",
+  description: "The CV and career hub of Feras Harah, a Software Engineering student at Queen’s University Belfast seeking a 2026–27 industrial placement.",
   path: "/cv",
 });
 
@@ -23,7 +23,7 @@ export default function CVPage() {
   return (
     <PageShell
       eyebrow="CV / Career hub"
-      title="A concise record, ready when the details are."
+      title="The two-page version of all this."
       description={profile.cv.summary}
       aside={<div className="rounded-2xl border border-line bg-surface p-5"><p className="eyebrow text-accent">Document status</p><p className="mt-3 text-sm font-semibold text-ink">{cvAvailable ? "Available to view and download" : "In preparation"}</p></div>}
     >
@@ -37,7 +37,7 @@ export default function CVPage() {
               <li className="flex gap-3"><CheckIcon className="mt-0.5 size-4 shrink-0 text-positive" /> A same-origin preview where the browser supports it</li>
               <li className="flex gap-3"><CheckIcon className="mt-0.5 size-4 shrink-0 text-positive" /> A direct download alongside the browser preview</li>
             </ul>
-            <p className="mt-7 border-t border-line pt-6 text-xs leading-6 text-subtle">When published, this will be a deliberately public document with private details removed.</p>
+            <p className="mt-7 border-t border-line pt-6 text-xs leading-6 text-subtle">This is a deliberately public document — private details like my phone number are shared directly with employers instead.</p>
           </aside>
           <CVViewer available={cvAvailable} />
         </div>

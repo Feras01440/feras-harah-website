@@ -37,8 +37,8 @@ export default function HomePage() {
             <SectionHeader
               id="selected-work-title"
               eyebrow="Selected work"
-              title="A focused first project, built to grow."
-              description="This site is the first published entry: a practical platform for future work, notes, and ideas. More projects will follow with the context they deserve."
+              title="A real shop, going online."
+              description="A professional Shopify store for a local grocery business — with team-built games and this hand-made site alongside it on the projects page."
             />
             <ButtonLink href="/projects" variant="quiet" className="self-start lg:self-auto">
               All projects <ArrowRightIcon className="size-4" />
@@ -57,18 +57,16 @@ export default function HomePage() {
         <div className="site-shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <SectionHeader
             id="growth-title"
-            eyebrow="Areas in motion"
-              title="Developing range, with plenty still to learn."
-            description="These are the kinds of work and thinking I want to get better at as my degree and personal projects progress."
+            eyebrow="What I work on"
+            title="Four areas, all backed by real builds."
+            description="Not a wishlist — each of these is grounded in a project you can read about on this site."
           />
           <div className="grid gap-px overflow-hidden rounded-[2rem] border border-line bg-line sm:grid-cols-2">
             {profile.about.interests.map((interest, index) => (
-              <MotionWrapper key={interest} delay={index * 0.04} className="bg-canvas p-6 sm:p-7">
+              <MotionWrapper key={interest.title} delay={index * 0.04} className="bg-canvas p-6 sm:p-7">
                 <span className="font-mono text-xs text-accent">0{index + 1}</span>
-                <h3 className="mt-10 text-xl font-semibold tracking-[-0.035em] text-ink">{interest}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">
-                  An active area for practice, reflection, and stronger future work.
-                </p>
+                <h3 className="mt-10 text-xl font-semibold tracking-[-0.035em] text-ink">{interest.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-muted">{interest.description}</p>
               </MotionWrapper>
             ))}
           </div>
@@ -87,7 +85,7 @@ export default function HomePage() {
             <MotionWrapper>
               <Link href="/about#beyond-code" className="card-lift block h-full rounded-[2rem] border border-line bg-surface p-7 shadow-soft sm:p-9">
                 <p className="eyebrow text-accent">Beyond code</p>
-                <h3 className="mt-8 text-2xl font-semibold tracking-[-0.04em] text-ink">Interests, experiments, and the human details.</h3>
+                <h3 className="mt-8 text-2xl font-semibold tracking-[-0.04em] text-ink">Interests, experiments, and the personal details.</h3>
                 <p className="mt-4 text-sm leading-7 text-muted">{hobbiesIntro}</p>
                 <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink">About this space <ArrowRightIcon className="size-4" /></span>
               </Link>
@@ -144,7 +142,6 @@ export default function HomePage() {
             <ul className="mt-6 space-y-3 text-sm text-muted">
               <li className="flex gap-3"><CheckIcon className="mt-0.5 size-4 shrink-0 text-positive" /> A short introduction before the PDF</li>
               <li className="flex gap-3"><CheckIcon className="mt-0.5 size-4 shrink-0 text-positive" /> PDF preview and download when available</li>
-              <li className="flex gap-3"><CheckIcon className="mt-0.5 size-4 shrink-0 text-positive" /> Intentionally public, never hidden by accident</li>
             </ul>
             <ButtonLink href="/cv" className="mt-8 self-start">View CV page <ArrowRightIcon className="size-4" /></ButtonLink>
           </div>
@@ -152,13 +149,13 @@ export default function HomePage() {
       </section>
 
       <ClosingPanel
-        eyebrow={hasPublicContact ? "A good next conversation" : "Keep exploring"}
-        title={hasPublicContact ? "Have an opportunity, useful idea, or thoughtful question?" : "See the work and thinking behind this growing space."}
-        description={hasPublicContact ? "I am building this space as a clearer way to share what I am learning and open the door to genuine conversations." : "Projects and short updates offer the clearest view of what I am building and learning right now."}
+        eyebrow={hasPublicContact ? "Placement 2026–27" : "Keep exploring"}
+        title={hasPublicContact ? "Looking for a placement student who ships real things?" : "See the work and thinking behind this growing space."}
+        description={hasPublicContact ? "I'm applying for 2026–27 industrial placements now. If you'd like to talk — or just want to see more of the work first — the door is open." : "Projects and short updates offer the clearest view of what I am building and learning right now."}
         primaryHref={hasPublicContact ? "/contact" : "/projects"}
         primaryLabel={hasPublicContact ? "Contact me" : "Explore projects"}
-        secondaryHref={hasPublicContact ? "/about" : "/updates"}
-        secondaryLabel={hasPublicContact ? "Learn more first" : "Read updates"}
+        secondaryHref={hasPublicContact ? "/projects" : "/updates"}
+        secondaryLabel={hasPublicContact ? "See the projects" : "Read updates"}
       />
     </>
   );

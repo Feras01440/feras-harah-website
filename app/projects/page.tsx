@@ -19,7 +19,7 @@ export default function ProjectsPage() {
     <PageShell
       eyebrow="Work / Experiments"
       title="Useful things, shared with honest context."
-      description="This is a deliberately selective record of university work, personal builds, and software experiments. An entry appears only when its details are accurate enough to stand behind."
+      description="This is a deliberately selective record of university work, personal builds, and software experiments."
       aside={<div><p className="eyebrow text-subtle">Published now</p><p className="mt-3 text-5xl font-semibold tracking-[-0.06em] text-ink">{String(publishedProjects.length).padStart(2, "0")}</p><p className="mt-2 text-sm leading-6 text-muted">A selective collection, with more work added when it is ready to share.</p></div>}
     >
       <section className="section-pad">

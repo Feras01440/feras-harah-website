@@ -2,101 +2,89 @@ import type { Project } from "./types";
 
 export const projects = [
   {
-    slug: "personal-website",
-    title: "This website",
+    slug: "basha-pantry",
+    title: "Basha Pantry — online store for a local shop",
     shortDescription:
-      "An evolving personal platform for projects, learning notes, and the interests I choose to share.",
+      "A Shopify storefront for WoodHouse Groceries, bringing their range of American, Asian, and African products online.",
     longDescription:
-      "Designed as a long-term home that can grow with new work without needing the layout to be rebuilt each time. The site prioritises accessibility, security, performance, and straightforward content updates.",
+      "WoodHouse Groceries is a real local business with hundreds of products — American imports, sweets, Asian and African foods — and no online presence. I’m building Basha Pantry, their Shopify store, from the ground up: product data, photography, categories, and storefront. The unglamorous truth of e-commerce is that the hard part isn’t the website — it’s turning a shop full of stock into a clean, consistent, professional catalogue people can actually browse.",
     status: "in-progress",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    learnings: [],
-    challenges: [],
+    technologies: ["Shopify", "E-commerce", "Product data"],
+    learnings: [
+      "Working directly with a business owner: agreeing scope, priorities, and what “done” means",
+      "Product data is a real engineering problem — naming, categorising, and photographing hundreds of items consistently",
+    ],
+    challenges: [
+      "Building a catalogue that looks professional when the source material is a physical shop floor",
+    ],
     featured: true,
     publicationStatus: "published",
     published: true,
     isPlaceholder: false,
   },
   {
-    slug: "university-software-engineering-project-template",
-    title: "University software engineering project",
+    slug: "reignfall",
+    title: "ReignFall — a text-adventure reborn as a web game",
     shortDescription:
-      "Replace this template with the real project goal, context, and Feras’s contribution.",
+      "A database-driven text-adventure web game built by a six-person team: accounts, saves, inventory, and analytics.",
     longDescription:
-      "Describe the problem, team or module context, engineering approach, outcome, and what Feras personally worked on. Do not publish until every claim is confirmed.",
+      "A first-year university project (CSC1034) that grew into a full product. ReignFall reimagines the classic text adventure for modern devices: a peasant rises against a tyrannical king, gathering allies along the way. Under the story sits real engineering — player accounts with salted and SHA-256-hashed passwords tested against sqlmap, session tokens that expire, autosave and manual saves that rebuild full game state on load, a four-slot inventory with stat effects, score and reputation systems, a global analytics page with leaderboards, and six accessibility features. The story itself is driven by JSON files, which kept the branching narrative clean.",
     status: "completed",
-    technologies: [],
-    learnings: [],
-    challenges: [],
-    featured: false,
-    replacementNotes: [
-      "Add the confirmed project title and status.",
-      "Add Feras’s individual contribution rather than implying ownership of all team work.",
-      "Add real technologies, screenshots, repository, and demo links only when public.",
+    technologies: ["JavaScript", "HTML & CSS", "SQL", "JSON"],
+    learnings: [
+      "How much of a “simple” game is actually database design",
+      "Security is a feature: hashing, session expiry, and injection testing were built in, not bolted on",
+      "Keeping six people productive in one codebase takes real coordination",
     ],
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
+    challenges: [
+      "Restoring a complete game state — session, allies, inventory, and logs — from a saved game without breaking anything",
+    ],
+    featured: false,
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
   },
   {
-    slug: "stock-management-experiment-template",
-    title: "Stock management experiment",
+    slug: "greenopoly",
+    title: "Greenopoly — Monopoly, but it teaches climate change",
     shortDescription:
-      "Replace this template with a real inventory or ecommerce experiment if one exists.",
+      "A fully functional Monopoly-style game in C++ with a complete database, built by a six-person team to make climate education fun.",
     longDescription:
-      "Explain the real user problem, data model, main workflows, current state, and what Feras learned. Keep this entry unpublished until those details are confirmed.",
-    status: "planned",
-    technologies: [],
-    learnings: [],
-    challenges: [],
-    featured: false,
-    replacementNotes: [
-      "Confirm that this project exists before changing its publication state.",
-      "Replace the sample status and add only real project links.",
+      "Our second-year Software Engineering group project: a playable, database-backed Monopoly variant written in C++ where the mechanics carry a message about climate change. Building a rules-heavy board game with six people is an exercise in interfaces — between game systems, between the game and its database, and between teammates who all need to ship their part without breaking everyone else’s.",
+    status: "completed",
+    technologies: ["C++", "SQL"],
+    learnings: [
+      "Designing game rules as clean, testable systems rather than one giant loop",
+      "Agreeing interfaces early so six people can build in parallel",
     ],
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
+    challenges: [
+      "Keeping a rules-heavy game fun while it carries an educational message",
+    ],
+    featured: false,
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
   },
   {
-    slug: "ai-productivity-tool-template",
-    title: "AI-assisted productivity tool",
+    slug: "personal-website",
+    title: "This website",
     shortDescription:
-      "Replace this template with a real experiment and a precise explanation of where AI is used.",
+      "My hand-built home on the web: projects, learning notes, and a clear signal of what I’m looking for.",
     longDescription:
-      "Document the actual workflow, limitations, privacy considerations, and Feras’s implementation. Avoid broad AI claims or implying capabilities the project does not have.",
-    status: "planned",
-    technologies: [],
-    learnings: [],
-    challenges: [],
-    featured: false,
-    replacementNotes: [
-      "Confirm that this project exists before changing its publication state.",
-      "Explain the AI provider and data handling only after they are known.",
+      "Built with Next.js, TypeScript, and Tailwind rather than a site builder, because owning the details matters to me: it ships no trackers or cookies, sends every page as static HTML, respects reduced-motion settings, and keeps all content in typed files that refuse to compile if I try to publish something unfinished. It’s also honest by design — everything on here is something I can back up in an interview.",
+    status: "completed",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Motion"],
+    learnings: [
+      "Shipping something public forces decisions that tutorials never cover — accessibility, security headers, honest copy",
     ],
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
-  },
-  {
-    slug: "web-app-experiment-template",
-    title: "Web app experiment",
-    shortDescription:
-      "Use this template for a smaller web project that is ready to discuss honestly.",
-    longDescription:
-      "Replace this copy with the project’s real purpose, scope, implementation choices, outcome, and next steps before publishing it.",
-    status: "planned",
-    technologies: [],
-    learnings: [],
-    challenges: [],
-    featured: false,
-    replacementNotes: [
-      "Choose a specific title rather than publishing the generic template name.",
-      "Add only links that resolve to public, intentional destinations.",
+    challenges: [
+      "Writing about yourself is harder than writing code",
     ],
-    publicationStatus: "template",
-    published: false,
-    isPlaceholder: true,
+    githubUrl: "https://github.com/Feras01440/feras-harah-website",
+    featured: false,
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
   },
 ] as const satisfies readonly Project[];
 

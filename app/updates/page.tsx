@@ -18,7 +18,7 @@ export default function UpdatesPage() {
   return (
     <PageShell
       eyebrow="Notes / Updates"
-      title="Small notes from work in progress."
+      title="The notes behind the work."
       description={updatesIntro}
       aside={<p className="text-sm leading-7 text-muted">Published selectively. This is a learning log, not a content treadmill.</p>}
     >

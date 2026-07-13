@@ -38,7 +38,7 @@ export default function ContactPage() {
       eyebrow="Contact / Say hello"
       title="A simple way to start a genuine conversation."
       description={profile.contact.introduction}
-      aside={<div><p className="eyebrow text-accent">Privacy first</p><p className="mt-3 text-sm leading-7 text-muted">No submissions, tracking, cookies, or hidden data collection.</p></div>}
+      aside={<div><p className="eyebrow text-accent">Response time</p><p className="mt-3 text-sm leading-7 text-muted">I check this inbox daily and usually reply within a day or two.</p></div>}
     >
       <section className="section-pad">
         <div className="site-shell grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-14">

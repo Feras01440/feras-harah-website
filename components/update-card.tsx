@@ -23,9 +23,15 @@ export function UpdateCard({
         <span className="eyebrow text-accent">
           {categoryLabels[update.category]}
         </span>
-        <time dateTime={update.publishedAt} className="font-mono text-[0.68rem] uppercase tracking-[0.1em] text-subtle">
-          {update.dateLabel}
-        </time>
+        {update.publishedAt ? (
+          <time dateTime={update.publishedAt} className="font-mono text-[0.68rem] uppercase tracking-[0.1em] text-subtle">
+            {update.dateLabel}
+          </time>
+        ) : (
+          <span className="font-mono text-[0.68rem] uppercase tracking-[0.1em] text-subtle">
+            {update.dateLabel}
+          </span>
+        )}
       </div>
       <h3
         className={large

@@ -35,8 +35,8 @@ export function Footer() {
           <div>
             <Logo />
             <p className="mt-5 max-w-md text-sm leading-7 text-muted">
-              A growing personal platform for projects, learning notes, and
-              thoughtful experiments in software and design.
+              Software Engineering student in Belfast, building useful things
+              and looking for a 2026–27 industrial placement.
             </p>
           </div>
 
