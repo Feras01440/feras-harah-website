@@ -78,9 +78,14 @@ Northern Ireland. Keep an accessible HTML summary and direct download fallback
 because embedded browser PDF viewers are not consistently accessible.
 
 The security headers intentionally treat the CV differently from normal pages:
-HTML pages deny framing, while the PDF permits same-origin framing so the CV page
-can embed it. Do not replace the PDF's `SAMEORIGIN`/`frame-ancestors 'self'`
-policy with a global `DENY` rule unless the embedded preview is also removed.
+HTML pages deny framing, while everything under `/cv/` (the PDF and its preview
+image) permits same-origin framing so the CV page can embed it. The rule matches
+the folder rather than a filename, so renaming the PDF keeps the preview
+working. Do not replace the `SAMEORIGIN`/`frame-ancestors 'self'` policy with a
+global `DENY` rule unless the embedded preview is also removed.
+
+The CV source in `cv-source/` is public in the repository. Apply the same
+checklist to it as to the generated PDF.
 
 The static page CSP permits inline scripts for Next.js hydration and inline
 styles for component motion, but it never permits `unsafe-eval` in production.
@@ -105,9 +110,17 @@ Before each public release:
 6. Confirm HTTPS redirects, the canonical production URL, sitemap/robots output,
    and that no page is indexed before its placeholder and privacy review passes.
 
+The CI workflow runs lint, type-checking, and the production build on every push
+and pull request, and reports `pnpm audit --prod --audit-level=high` results.
+Dependabot opens weekly dependency updates. Review and merge security updates
+promptly: a public repository with known critical advisories undermines the
+site's stated security posture.
+
 Keep dependencies minimal and commit the lockfile. Prefer platform and framework
 features over packages when the additional dependency does not materially
-improve correctness or maintainability.
+improve correctness or maintainability. When a transitive advisory needs a
+workspace override, pin the smallest patched version and remove the override
+once upstream ranges include the fix.
 
 Do not report a security issue through a public tracker if it contains sensitive
 details. Use the verified private contact method published on the deployed site.

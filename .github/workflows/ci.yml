@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    name: Lint, type-check, and build
+    runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_SITE_URL: https://ferasharah.com
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm build
+
+  audit:
+    name: Production dependency audit
+    runs-on: ubuntu-latest
+    # A transitive advisory with no upstream fix yet should warn, not leave the badge red.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: pnpm audit --prod --audit-level=high

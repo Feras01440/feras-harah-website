@@ -1,0 +1,20 @@
+name: Content freshness
+
+on:
+  schedule:
+    - cron: "0 9 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Newest update is under 90 days old
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: node scripts/check-freshness.mjs
