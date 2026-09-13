@@ -1,13 +1,14 @@
 packages:
   - "."
 
-# Pin the patched PostCSS release across the graph until Next.js updates its
-# transitive range. This addresses GHSA-qx2v-qp2m-jg93 (<8.5.10).
+# Pin a patched PostCSS release across the graph so every consumer (Next.js,
+# Tailwind) resolves the same audited copy. 8.5.23+ addresses the PostCSS
+# advisories reported against earlier 8.5.x releases.
 overrides:
-  postcss: "8.5.10"
+  postcss: "8.5.28"
 
 # pnpm 11 blocks dependency lifecycle scripts by default. These two exact,
 # reviewed versions are required by the pinned Next.js/ESLint toolchain.
 allowBuilds:
-  "sharp@0.34.5": true
+  "sharp@0.35.4": true
   "unrs-resolver@1.12.2": true
