@@ -1,7 +1,7 @@
 import type { TimelineEntry } from "./types";
 
 export const timelineIntro =
-  "The route so far — school projects that found real users, two years of team engineering at Queen’s, and a placement year on the horizon.";
+  "The route so far — school projects that found real users, two years of team engineering at Queen’s, and what comes next.";
 
 export const timeline = [
   {
@@ -64,7 +64,7 @@ export const timeline = [
     period: "Now",
     title: "Building Basha Pantry & applying for placements",
     description:
-      "Bringing a local grocery business online with a professional Shopify store, and looking for a 2026–27 industrial placement where I can contribute to a real engineering team.",
+      "Bringing a local grocery business online with a professional Shopify store — and available now for a 2026–27 industrial placement where I can contribute to a real engineering team.",
     kind: "goal",
     publicationStatus: "published",
     published: true,

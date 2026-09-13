@@ -14,6 +14,7 @@ import { profile } from "@/content/profile";
 import { publishedSkillGroups, skillsEmptyState, skillsIntro } from "@/content/skills";
 import { publishedTimeline, timelineIntro } from "@/content/timeline";
 import { createMetadata } from "@/lib/metadata";
+import { getProfilePageJsonLd, serializeJsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = createMetadata({
   title: "About",
@@ -29,6 +30,7 @@ export default function AboutPage() {
       description={profile.about.introduction}
       aside={<div className="border-l-2 border-accent pl-5"><p className="eyebrow text-accent">Working principle</p><p className="mt-3 text-sm leading-7 text-muted">{profile.principle}</p></div>}
     >
+      <script type="application/ld+json">{serializeJsonLd(getProfilePageJsonLd("/about"))}</script>
       <section className="section-pad" aria-labelledby="background-title">
         <div className="site-shell grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <SectionHeader id="background-title" eyebrow="Background" title="A foundation in engineering—and room to experiment." />
@@ -37,7 +39,7 @@ export default function AboutPage() {
             <p>{profile.about.growthNote}</p>
             <div className="mt-8 rounded-[2rem] border border-line bg-surface p-6 shadow-soft sm:p-8">
               <p className="eyebrow text-accent">Current perspective</p>
-              <p className="mt-5 text-base font-medium leading-8 text-ink">Confidence should come from doing the work, being honest about the gaps, and improving with each iteration.</p>
+              <p className="mt-5 text-base font-medium leading-8 text-ink">I learn fastest by building something real and getting straight feedback on it.</p>
             </div>
           </div>
         </div>
@@ -71,7 +73,7 @@ export default function AboutPage() {
 
       <section id="skills" className="border-y border-line bg-surface section-pad" aria-labelledby="skills-title">
         <div className="site-shell">
-          <SectionHeader id="skills-title" eyebrow="Skills" title="A skills picture that stays honest." description={skillsIntro} />
+          <SectionHeader id="skills-title" eyebrow="Skills" title="What I can build with today." description={skillsIntro} />
           <div className="mt-10 sm:mt-14">
             {publishedSkillGroups.length ? (
               <div className="grid gap-6 lg:grid-cols-2">
@@ -116,7 +118,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <ClosingPanel eyebrow="See the work" title="The next part of the story is what gets built." description="Projects are published carefully, with honest context about their status, challenges, and lessons." primaryHref="/projects" primaryLabel="Explore projects" secondaryHref="/updates" secondaryLabel="Read the notes" />
+      <ClosingPanel eyebrow="See the work" title="The next part of the story is what gets built." description="Each project lists its status, the hard parts, and what I learned." primaryHref="/projects" primaryLabel="Explore projects" secondaryHref="/updates" secondaryLabel="Read the notes" />
     </PageShell>
   );
 }

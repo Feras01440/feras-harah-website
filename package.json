@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "cv": "node scripts/build-cv.mjs",
+    "check:freshness": "node scripts/check-freshness.mjs"
   },
   "engines": {
     "node": ">=20.9.0"

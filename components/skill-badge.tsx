@@ -13,7 +13,7 @@ export function SkillBadge({ skill }: { skill: Skill }) {
         <span className="block text-sm font-semibold text-ink">{skill.name}</span>
         {skill.note ? <span className="mt-1 block text-xs leading-5 text-muted">{skill.note}</span> : null}
       </span>
-      <span className="font-mono text-[0.65rem] uppercase tracking-[0.1em] text-accent">
+      <span className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-accent">
         {levelLabel[skill.level]}
       </span>
     </li>

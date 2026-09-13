@@ -1,27 +1,26 @@
 import type { MetadataRoute } from "next";
 
-import { profile } from "@/content/profile";
+import { publishedUpdates } from "@/content/updates";
 import { isPublicCvAvailable } from "@/lib/cv";
 import { getSiteUrl } from "@/lib/metadata";
-
-const hasPublicContact = profile.contact.methods.some(
-  (method) => method.published,
-);
-const routes = [
-  "",
-  "/about",
-  "/projects",
-  "/updates",
-  ...(isPublicCvAvailable() ? ["/cv"] : []),
-  ...(hasPublicContact ? ["/contact"] : []),
-];
+import { hasPublicContact } from "@/lib/public-contact";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
+  const latestUpdate = publishedUpdates[0]?.publishedAt;
 
-  return routes.map((route) => ({
-    url: new URL(route || "/", siteUrl).toString(),
-    changeFrequency: route === "/updates" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : 0.7,
+  // Only pages whose content carries a real date get lastModified; a deploy date would be noise.
+  const routes: { path: string; lastModified?: string }[] = [
+    { path: "/", lastModified: latestUpdate },
+    { path: "/about" },
+    { path: "/projects" },
+    { path: "/updates", lastModified: latestUpdate },
+    ...(isPublicCvAvailable() ? [{ path: "/cv" }] : []),
+    ...(hasPublicContact ? [{ path: "/contact" }] : []),
+  ];
+
+  return routes.map(({ path, lastModified }) => ({
+    url: new URL(path, siteUrl).toString(),
+    ...(lastModified ? { lastModified } : {}),
   }));
 }

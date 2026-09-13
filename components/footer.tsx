@@ -1,10 +1,10 @@
 import Link from "next/link";
 
+import { CopyButton } from "@/components/copy-button";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { Logo } from "@/components/logo";
 import { profile } from "@/content/profile";
-import type { PublicDetail } from "@/content/types";
-import { getSafeSocialUrl } from "@/lib/safe-url";
+import { getPublicEmail, getPublicSocialLinks } from "@/lib/public-contact";
 
 const footerLinks = [
   { href: "/about", label: "About" },
@@ -15,28 +15,18 @@ const footerLinks = [
 ] as const;
 
 export function Footer() {
-  const contactMethods: readonly PublicDetail[] = profile.contact.methods;
-  const socialLinks = contactMethods.flatMap((method) => {
-    if (
-      !method.published ||
-      (method.kind !== "github" && method.kind !== "linkedin")
-    ) {
-      return [];
-    }
-
-    const href = getSafeSocialUrl(method.kind, method.href);
-    return href ? [{ label: method.label, href }] : [];
-  });
+  const email = getPublicEmail();
+  const socialLinks = getPublicSocialLinks();
 
   return (
     <footer className="border-t border-line bg-surface">
       <div className="site-shell py-12 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr_0.8fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr_1fr]">
           <div>
             <Logo />
             <p className="mt-5 max-w-md text-sm leading-7 text-muted">
-              Software Engineering student in Belfast, building useful things
-              and looking for a 2026–27 industrial placement.
+              Software Engineering student in Belfast, building useful things.{" "}
+              {profile.availability.sentence}
             </p>
           </div>
 
@@ -56,12 +46,28 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <p className="eyebrow mb-4 text-subtle">Elsewhere</p>
-            {socialLinks.length ? (
+          {email || socialLinks.length ? (
+            <div>
+              <p className="eyebrow mb-4 text-subtle">Get in touch</p>
               <ul className="space-y-1">
+                {email ? (
+                  <li className="flex flex-wrap items-center gap-x-4">
+                    <a
+                      href={`mailto:${email}`}
+                      className="inline-flex min-h-11 items-center text-sm font-medium text-muted transition hover:text-accent wrap-anywhere"
+                    >
+                      {email}
+                    </a>
+                    <CopyButton
+                      value={email}
+                      label="Copy"
+                      hiddenLabel="email address"
+                      className="text-xs text-subtle hover:text-accent"
+                    />
+                  </li>
+                ) : null}
                 {socialLinks.map((link) => (
-                  <li key={link.label}>
+                  <li key={link.href}>
                     <a
                       href={link.href}
                       target="_blank"
@@ -74,12 +80,8 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            ) : (
-              <p className="max-w-[15rem] text-sm leading-6 text-subtle">
-                Social profiles will appear here when they are ready to share.
-              </p>
-            )}
-          </div>
+            </div>
+          ) : null}
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-xs leading-5 text-subtle sm:flex-row sm:items-center sm:justify-between">

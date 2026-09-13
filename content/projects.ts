@@ -39,7 +39,7 @@ export const projects = [
     challenges: [
       "Restoring a complete game state — session, allies, inventory, and logs — from a saved game without breaking anything",
     ],
-    featured: false,
+    featured: true,
     publicationStatus: "published",
     published: true,
     isPlaceholder: false,
@@ -60,7 +60,7 @@ export const projects = [
     challenges: [
       "Keeping a rules-heavy game fun while it carries an educational message",
     ],
-    featured: false,
+    featured: true,
     publicationStatus: "published",
     published: true,
     isPlaceholder: false,
@@ -71,11 +71,11 @@ export const projects = [
     shortDescription:
       "My hand-built home on the web: projects, learning notes, and a clear signal of what I’m looking for.",
     longDescription:
-      "Built with Next.js, TypeScript, and Tailwind rather than a site builder, because owning the details matters to me: it ships no trackers or cookies, sends every page as static HTML, respects reduced-motion settings, and keeps all content in typed files that refuse to compile if I try to publish something unfinished. It’s also honest by design — everything on here is something I can back up in an interview.",
+      "Built with Next.js, TypeScript, and Tailwind rather than a site builder, because owning the details matters to me: it ships no trackers or cookies, sends every page as static HTML, respects reduced-motion settings, and keeps all content in typed files that refuse to compile if I try to publish something unfinished. Every push runs automated lint, type, and build checks.",
     status: "completed",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Motion"],
     learnings: [
-      "Shipping something public forces decisions that tutorials never cover — accessibility, security headers, honest copy",
+      "Shipping something public forces decisions that tutorials never cover — accessibility, security headers, clear copy",
     ],
     challenges: [
       "Writing about yourself is harder than writing code",

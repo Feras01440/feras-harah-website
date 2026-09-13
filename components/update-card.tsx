@@ -8,6 +8,12 @@ const categoryLabels: Record<Update["category"], string> = {
   community: "Community",
 };
 
+const monthYear = new Intl.DateTimeFormat("en-GB", {
+  month: "long",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
 export function UpdateCard({
   update,
   large = false,
@@ -17,21 +23,18 @@ export function UpdateCard({
   large?: boolean;
   showBody?: boolean;
 }) {
+  const dateLabel =
+    update.dateLabel ?? monthYear.format(new Date(`${update.publishedAt}T00:00:00Z`));
+
   return (
     <article className="card-lift hairline-top rounded-[2rem] border border-line bg-surface p-6 shadow-soft sm:p-8">
       <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
         <span className="eyebrow text-accent">
           {categoryLabels[update.category]}
         </span>
-        {update.publishedAt ? (
-          <time dateTime={update.publishedAt} className="font-mono text-[0.68rem] uppercase tracking-[0.1em] text-subtle">
-            {update.dateLabel}
-          </time>
-        ) : (
-          <span className="font-mono text-[0.68rem] uppercase tracking-[0.1em] text-subtle">
-            {update.dateLabel}
-          </span>
-        )}
+        <time dateTime={update.publishedAt} className="font-mono text-[0.72rem] uppercase tracking-[0.1em] text-subtle">
+          {dateLabel}
+        </time>
       </div>
       <h3
         className={large

@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+import { profile } from "./content/profile";
+
 type SecurityHeader = {
   key: string;
   value: string;
@@ -72,9 +74,38 @@ if (!isDevelopment) {
   });
 }
 
+function wwwToApexRedirect() {
+  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  if (!configuredUrl) return [];
+
+  const { hostname, origin } = new URL(configuredUrl);
+  if (hostname === "localhost" || hostname === "127.0.0.1" || hostname.startsWith("www.")) {
+    return [];
+  }
+
+  return [
+    {
+      source: "/:path*",
+      has: [{ type: "host" as const, value: `www\\.${hostname.replaceAll(".", "\\.")}` }],
+      destination: `${origin}/:path*`,
+      permanent: true,
+    },
+  ];
+}
+
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   poweredByHeader: false,
+  async redirects() {
+    return [
+      ...wwwToApexRedirect(),
+      {
+        source: "/cv.pdf",
+        destination: profile.cv.publicPath,
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {
@@ -92,8 +123,9 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        // Later matching headers override the normal page policy for this PDF.
-        source: "/cv/Feras-Harah-CV.pdf",
+        // Later matching headers override the normal page policy for CV files.
+        // `:path+` needs at least one segment; `:path*` would also match the /cv page and block its assets.
+        source: "/cv/:path+",
         headers: [
           {
             key: "Cache-Control",

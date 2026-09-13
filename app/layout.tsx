@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { profile } from "@/content/profile";
 import { getSiteUrl } from "@/lib/metadata";
+import { getSiteJsonLd, serializeJsonLd } from "@/lib/structured-data";
 
 import "./globals.css";
 
@@ -19,19 +20,7 @@ const inter = Inter({
 const themeInitScript = `try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark"){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t}catch(e){}`;
 
 // Static, reviewed content only — visitor input never reaches this JSON.
-const personJsonLd = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: profile.name,
-  givenName: profile.givenName,
-  familyName: profile.familyName,
-  affiliation: {
-    "@type": "CollegeOrUniversity",
-    name: profile.university,
-  },
-  url: getSiteUrl().toString(),
-  sameAs: ["https://github.com/Feras01440"],
-});
+const siteJsonLd = serializeJsonLd(getSiteJsonLd());
 
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
@@ -75,7 +64,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang="en-GB" className={inter.variable} suppressHydrationWarning>
       <head>
         <script id="theme-init">{themeInitScript}</script>
-        <script type="application/ld+json">{personJsonLd}</script>
+        <script type="application/ld+json">{siteJsonLd}</script>
       </head>
       {/* suppressHydrationWarning: browser extensions like Grammarly inject
           attributes into <body> before React hydrates. */}

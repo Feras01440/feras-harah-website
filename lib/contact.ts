@@ -2,7 +2,7 @@ export const CONTACT_FIELD_LIMITS = {
   name: 80,
   email: 254,
   subject: 120,
-  message: 2_000,
+  message: 1_000,
 } as const;
 
 export type ContactFieldsInput = {
@@ -38,6 +38,8 @@ export type MailtoBuildResult =
       ok: true;
       data: SanitizedContactFields;
       url: string;
+      subject: string;
+      body: string;
     }
   | {
       ok: false;
@@ -215,5 +217,5 @@ export function buildMailtoUrl(
   const encodedRecipient = `${encodeURIComponent(localPart)}@${domain}`;
   const url = `mailto:${encodedRecipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-  return { ok: true, data, url };
+  return { ok: true, data, url, subject, body };
 }

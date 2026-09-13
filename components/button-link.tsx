@@ -11,6 +11,7 @@ type ButtonLinkProps = {
   variant?: "primary" | "secondary" | "quiet";
   external?: boolean;
   download?: boolean;
+  newTab?: boolean;
 };
 
 const styles = {
@@ -28,6 +29,7 @@ export function ButtonLink({
   variant = "primary",
   external = false,
   download = false,
+  newTab = false,
 }: ButtonLinkProps) {
   const classes = cn(
     "inline-flex min-h-11 items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition duration-200",
@@ -54,6 +56,22 @@ export function ButtonLink({
   if (download) {
     return (
       <a href={href} download className={classes}>
+        {children}
+      </a>
+    );
+  }
+
+  if (newTab) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {children}
+      </a>
+    );
+  }
+
+  if (href.startsWith("mailto:")) {
+    return (
+      <a href={href} className={classes}>
         {children}
       </a>
     );

@@ -10,6 +10,23 @@ const statusLabels: Record<Project["status"], string> = {
   completed: "Completed",
 };
 
+function monogram(title: string) {
+  const name = title.split(" — ")[0] ?? title;
+  const words = name.match(/[A-Za-z0-9]+/g) ?? [];
+
+  if (words.length > 1) {
+    return words
+      .slice(0, 2)
+      .map((word) => word[0])
+      .join("")
+      .toUpperCase();
+  }
+
+  const word = words[0] ?? name;
+  const capitals = word.match(/[A-Z]/g) ?? [];
+  return capitals.length > 1 ? capitals.slice(0, 2).join("") : word.slice(0, 2);
+}
+
 export function ProjectCard({
   project,
   index = 0,
@@ -48,18 +65,14 @@ export function ProjectCard({
             <div className="absolute inset-0 opacity-50 blueprint-grid" />
             <div className="relative flex h-full min-h-44 flex-col justify-between">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-canvas/60">
+                <span className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-canvas/60">
                   Project / {String(index + 1).padStart(2, "0")}
                 </span>
                 <span className="size-2 rounded-full bg-accent" />
               </div>
               <div>
                 <span className="block text-[clamp(4rem,9vw,7rem)] font-semibold leading-none tracking-[-0.09em] text-canvas/95">
-                  {project.title
-                    .split(" ")
-                    .slice(0, 2)
-                    .map((word) => word[0])
-                    .join("")}
+                  {monogram(project.title)}
                 </span>
                 <div className="mt-4 h-px w-full bg-canvas/15" />
               </div>
@@ -74,7 +87,7 @@ export function ProjectCard({
             {statusLabels[project.status]}
           </span>
           {project.featured ? (
-            <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-subtle">
+            <span className="rounded-full border border-line px-2.5 py-1 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-subtle">
               Selected work
             </span>
           ) : null}
@@ -91,7 +104,7 @@ export function ProjectCard({
             {project.technologies.map((technology) => (
               <li
                 key={technology}
-                className="rounded-full bg-accent-soft px-3 py-1.5 font-mono text-[0.68rem] font-semibold text-accent"
+                className="rounded-full bg-accent-soft px-3 py-1.5 font-mono text-xs font-semibold text-accent-hover"
               >
                 {technology}
               </li>

@@ -34,7 +34,7 @@ export function ContactCard({ detail }: { detail: PublicDetail }) {
       </span>
       <span className="min-w-0 flex-1">
         <span className="eyebrow block text-subtle">{detail.label}</span>
-        <span className="mt-1 block truncate text-sm font-semibold text-ink">
+        <span className="mt-1 block text-sm font-semibold text-ink wrap-anywhere">
           {detail.displayValue}
         </span>
       </span>

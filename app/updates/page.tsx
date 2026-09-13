@@ -39,7 +39,7 @@ export default function UpdatesPage() {
         </div>
       </section>
 
-      <ClosingPanel eyebrow="Follow the work" title="The project page shows what shipped; the notes keep the thinking visible." description="Both stay intentionally small until there is something genuine and useful to add." primaryHref="/projects" primaryLabel="Explore projects" secondaryHref="/about" secondaryLabel="About the journey" />
+      <ClosingPanel eyebrow="Follow the work" title="The project page shows what shipped; the notes keep the thinking visible." description="New notes land when something ships or changes." primaryHref="/projects" primaryLabel="Explore projects" secondaryHref="/about" secondaryLabel="About the journey" />
     </PageShell>
   );
 }

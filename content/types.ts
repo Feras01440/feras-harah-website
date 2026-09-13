@@ -39,8 +39,18 @@ export type PublicDetail = ContentEntry<{
   readonly replacementNote?: string;
 }>;
 
+export type AvailabilityStatus = "seeking" | "placed" | "not-looking";
+
+export interface Availability {
+  readonly status: AvailabilityStatus;
+  readonly label: string;
+  readonly seeking: string;
+  readonly sentence: string;
+}
+
 export interface Profile {
   readonly name: string;
+  readonly alternateName?: string;
   readonly givenName: string;
   readonly familyName: string;
   readonly role: string;
@@ -48,6 +58,9 @@ export interface Profile {
   readonly university: string;
   readonly yearOfStudy: number;
   readonly eyebrow: string;
+  readonly shortLocation: string;
+  readonly languages: readonly string[];
+  readonly availability: Availability;
   readonly heroIntro: string;
   readonly currentChapter: string;
   readonly about: Readonly<{
@@ -67,8 +80,14 @@ export interface Profile {
     title: string;
     fileName: string;
     publicPath: InternalPath;
+    preview: Readonly<{
+      src: InternalPath;
+      width: number;
+      height: number;
+    }>;
     available: boolean;
     summary: string;
+    highlights: readonly string[];
     unavailableMessage: string;
   }>;
   readonly seo: Readonly<{
@@ -142,8 +161,8 @@ export type Update = ContentEntry<{
   readonly excerpt: string;
   readonly body: readonly string[];
   readonly category: UpdateCategory;
-  readonly dateLabel: string;
-  readonly publishedAt?: ISODate;
+  readonly publishedAt: ISODate;
+  readonly dateLabel?: string;
   readonly replacementNote?: string;
 }>;
 

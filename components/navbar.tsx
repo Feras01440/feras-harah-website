@@ -122,7 +122,6 @@ export function Navbar() {
         ref={mobileMenuRef}
         id="mobile-navigation"
         hidden={!open}
-        aria-label="Site navigation"
         className="fixed inset-x-0 top-[4.75rem] h-[calc(100dvh-4.75rem)] overflow-y-auto overscroll-contain border-t border-line bg-canvas lg:hidden"
       >
         <div className="site-shell flex h-full flex-col py-6">

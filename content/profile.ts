@@ -2,6 +2,7 @@ import type { Profile } from "./types";
 
 export const profile = {
   name: "Feras Harah",
+  alternateName: "Mohamad Feras Harah",
   givenName: "Feras",
   familyName: "Harah",
   role: "Software Engineering Student",
@@ -9,15 +10,23 @@ export const profile = {
   university: "Queen’s University Belfast",
   yearOfStudy: 3,
   eyebrow: "Software Engineering · Belfast",
+  shortLocation: "Belfast, NI",
+  languages: ["Arabic", "English", "Turkish"],
+  availability: {
+    status: "seeking",
+    label: "Available now",
+    seeking: "Placement 2026–27",
+    sentence: "Available now for a 2026–27 industrial placement.",
+  },
   heroIntro:
-    "I build practical software: an online store for a local grocery business, database-driven games with my university team, and the site you’re reading now. I’m a Software Engineering student at Queen’s University Belfast, looking for a 2026–27 industrial placement where I can do more of this.",
+    "I build practical software: an online store for a local grocery business, database-driven games with my university team, and the site you’re reading now. I’m a Software Engineering student at Queen’s University Belfast, available now for a 2026–27 industrial placement where I can do more of this.",
   currentChapter:
-    "Heading into my placement year at Queen’s: applying to companies for 2026–27, sharpening my Java and C++, and going deeper on data structures and algorithms.",
+    "The 2026–27 placement year has started and I’m still applying — so I can start straight away. In the meantime I’m sharpening my Java and C++ and working through data structures and algorithms.",
   about: {
     introduction:
       "I’m Feras — curious by default, practical by habit. I speak three languages (Arabic, English, and Turkish), and I got hooked on software at school, when a revision quiz I wrote in C# ended up being used by GCSE students preparing for their exams. Making something that other people actually used changed how I saw programming, and I’ve been chasing that feeling since.",
     background:
-      "I’m studying Software Engineering with placement at Queen’s University Belfast, graduating in 2028. In two years I’ve shipped a database-driven text-adventure game with a six-person team, built a climate-change board game in C++, and started building a real online store for a local business. Alongside study I’ve delivered for Amazon Flex and worked weekend shifts in a busy restaurant — work that taught me plenty about showing up and dealing with people.",
+      "I’m studying Software Engineering with placement at Queen’s University Belfast, graduating in 2028. In two years I’ve shipped a database-driven text-adventure game with a six-person team, built a climate-change board game in C++, and started building a real online store for a local business. In 2024 I joined the Kainos insight programme to see how a large Belfast software company works from the inside. Alongside study I’ve delivered for Amazon Flex and worked weekend shifts in a busy restaurant — work that taught me plenty about showing up and dealing with people.",
     growthNote:
       "I don’t pretend to know everything. What I can promise is that I ask good questions, take feedback seriously, and the things I build get noticeably better each time.",
     interests: [
@@ -88,6 +97,16 @@ export const profile = {
         isPlaceholder: false,
       },
       {
+        id: "linkedin",
+        kind: "linkedin",
+        label: "LinkedIn",
+        displayValue: "linkedin.com/in/feras01440",
+        href: "https://www.linkedin.com/in/feras01440",
+        publicationStatus: "published",
+        published: true,
+        isPlaceholder: false,
+      },
+      {
         id: "github",
         kind: "github",
         label: "GitHub",
@@ -95,16 +114,6 @@ export const profile = {
         href: "https://github.com/Feras01440",
         publicationStatus: "published",
         published: true,
-        isPlaceholder: false,
-      },
-      {
-        id: "linkedin",
-        kind: "linkedin",
-        label: "LinkedIn",
-        replacementNote:
-          "Feras has a LinkedIn profile but has chosen to keep it off the site for now.",
-        publicationStatus: "draft",
-        published: false,
         isPlaceholder: false,
       },
       {
@@ -122,15 +131,25 @@ export const profile = {
     title: "Curriculum vitae",
     fileName: "Feras-Harah-CV.pdf",
     publicPath: "/cv/Feras-Harah-CV.pdf",
+    preview: {
+      src: "/cv/Feras-Harah-CV-preview.png",
+      width: 794,
+      height: 1123,
+    },
     available: true,
     summary:
       "A two-page overview of my education, projects, and skills — the same story as this site, in the format recruiters expect.",
+    highlights: [
+      "BSc Software Engineering with Placement, Queen’s University Belfast, 2024–2028",
+      "Four projects with their stack, team size, and what I built",
+      "Skills, experience, and clickable links to email, LinkedIn, GitHub, and this site",
+    ],
     unavailableMessage:
       "The CV is being updated at the moment. Email me at feras07hrh@gmail.com and I’ll send you the latest version directly.",
   },
   seo: {
     title: "Feras Harah — Software Engineering Student in Belfast",
     description:
-      "Software Engineering student at Queen’s University Belfast seeking a 2026–27 industrial placement. Projects include an online store for a local grocery business and database-driven web games.",
+      "Software Engineering student at Queen’s University Belfast, available now for a 2026–27 industrial placement. Projects include e-commerce and database-driven games.",
   },
 } as const satisfies Profile;

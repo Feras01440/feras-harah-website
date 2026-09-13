@@ -5,12 +5,8 @@ import { ContactForm } from "@/components/contact-form";
 import { PageShell } from "@/components/page-shell";
 import { profile } from "@/content/profile";
 import type { PublicDetail } from "@/content/types";
-import { isValidEmailAddress } from "@/lib/contact";
 import { createMetadata } from "@/lib/metadata";
-
-const hasPublicContact = profile.contact.methods.some(
-  (method) => method.published,
-);
+import { getPublicEmail, hasPublicContact } from "@/lib/public-contact";
 
 export const metadata: Metadata = createMetadata({
   title: "Contact",
@@ -25,13 +21,6 @@ if (!hasPublicContact) {
 export default function ContactPage() {
   const contactMethods: readonly PublicDetail[] = profile.contact.methods;
   const publicMethods = contactMethods.filter((method) => method.published);
-  const emailMethod = publicMethods.find((method) => method.kind === "email");
-  const configuredRecipient = emailMethod?.href?.startsWith("mailto:")
-    ? emailMethod.href.slice("mailto:".length)
-    : "";
-  const recipientEmail = isValidEmailAddress(configuredRecipient)
-    ? configuredRecipient
-    : undefined;
 
   return (
     <PageShell
@@ -46,13 +35,11 @@ export default function ContactPage() {
             <p className="eyebrow text-accent">Contact details</p>
             <h2 className="mt-5 text-2xl font-semibold tracking-[-0.04em] text-ink">Choose the route that feels natural.</h2>
             <p className="mt-4 text-sm leading-7 text-muted">
-              {publicMethods.length ? "These are the public channels currently available." : profile.contact.unavailableMessage}
+              {publicMethods.length ? "Email is the quickest way to reach me." : profile.contact.unavailableMessage}
             </p>
             {publicMethods.length ? (
               <div className="mt-7 space-y-3">{publicMethods.map((method) => <ContactCard key={method.id} detail={method} />)}</div>
-            ) : (
-              <div className="mt-7 rounded-2xl border border-dashed border-line p-5 text-sm leading-7 text-muted">A public email and social links will appear here once they are ready to share.</div>
-            )}
+            ) : null}
             <div className="mt-8 border-t border-line pt-6">
               <p className="eyebrow text-subtle">Good reasons to write</p>
               <ul className="mt-4 space-y-2 text-sm leading-6 text-muted">
@@ -63,7 +50,7 @@ export default function ContactPage() {
               </ul>
             </div>
           </aside>
-          <ContactForm recipientEmail={recipientEmail} />
+          <ContactForm recipientEmail={getPublicEmail()} />
         </div>
       </section>
     </PageShell>

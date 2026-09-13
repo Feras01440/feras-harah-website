@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { CopyButton } from "@/components/copy-button";
 import { ArrowUpRightIcon, MailIcon } from "@/components/icons";
 import { EmptyState } from "@/components/empty-state";
 import {
@@ -18,10 +19,16 @@ const initialFields: ContactFieldsInput = {
   message: "",
 };
 
+type Draft = {
+  subject: string;
+  body: string;
+};
+
 export function ContactForm({ recipientEmail }: { recipientEmail?: string }) {
   const [fields, setFields] = useState(initialFields);
   const [errors, setErrors] = useState<ContactFieldErrors>({});
   const [status, setStatus] = useState("");
+  const [draft, setDraft] = useState<Draft | null>(null);
 
   const trustedRecipient = recipientEmail ?? "";
 
@@ -38,11 +45,13 @@ export function ContactForm({ recipientEmail }: { recipientEmail?: string }) {
     setFields((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
     setStatus("");
+    setDraft(null);
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("");
+    setDraft(null);
 
     try {
       const result = buildMailtoUrl(trustedRecipient, fields);
@@ -53,7 +62,11 @@ export function ContactForm({ recipientEmail }: { recipientEmail?: string }) {
       }
 
       setErrors({});
-      setStatus("Opening your email app. Your message has not been sent yet.");
+      setDraft({
+        subject: result.subject,
+        body: result.body.replaceAll("\r\n", "\n"),
+      });
+      setStatus("Opening your email app — nothing is sent until you press send there.");
       window.location.assign(result.url);
     } catch {
       setStatus("The contact address is not configured correctly yet.");
@@ -61,7 +74,7 @@ export function ContactForm({ recipientEmail }: { recipientEmail?: string }) {
   }
 
   const fieldClass =
-    "mt-2 min-h-12 w-full rounded-2xl border border-subtle bg-canvas px-4 py-3 text-sm text-ink placeholder:text-subtle transition focus:border-accent focus:outline-none";
+    "mt-2 min-h-12 w-full rounded-2xl border border-subtle bg-canvas px-4 py-3 text-sm text-ink placeholder:text-subtle transition focus:border-accent";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="rounded-[2rem] border border-line bg-surface p-6 shadow-soft sm:p-8">
@@ -143,9 +156,38 @@ export function ContactForm({ recipientEmail }: { recipientEmail?: string }) {
           type="submit"
           className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-ink bg-ink px-6 py-3 text-sm font-semibold text-canvas transition hover:-translate-y-0.5 hover:border-accent hover:bg-accent hover:text-white"
         >
-          Open email app <ArrowUpRightIcon className="size-4" />
+          Open in email app <ArrowUpRightIcon className="size-4" />
         </button>
       </div>
+
+      {draft ? (
+        <div className="mt-6 rounded-2xl border border-line bg-canvas p-5 text-sm leading-6 text-muted">
+          <p>
+            Nothing opened? Email{" "}
+            <a
+              href={`mailto:${trustedRecipient}`}
+              className="font-semibold text-ink underline decoration-accent underline-offset-4 transition hover:text-accent"
+            >
+              {trustedRecipient}
+            </a>{" "}
+            from your usual inbox and paste your message in.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-6">
+            <CopyButton
+              value={`Subject: ${draft.subject}\n\n${draft.body}`}
+              label="Copy message"
+              copiedLabel="Message copied"
+              className="text-ink hover:text-accent"
+            />
+            <CopyButton
+              value={trustedRecipient}
+              label="Copy email address"
+              copiedLabel="Address copied"
+              className="text-ink hover:text-accent"
+            />
+          </div>
+        </div>
+      ) : null}
     </form>
   );
 }

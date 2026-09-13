@@ -1,6 +1,8 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Feras Harah — Software Engineering student";
+import { profile } from "@/content/profile";
+
+export const alt = `${profile.name} — ${profile.role}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -33,16 +35,16 @@ export default function OpenGraphImage() {
             textTransform: "uppercase",
           }}
         >
-          Software Engineering · Belfast
+          {profile.eyebrow}
         </span>
         <span style={{ color: "#8994ff", fontSize: 34 }}>FH.</span>
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <span style={{ fontSize: 112, fontWeight: 700, letterSpacing: "-0.07em", lineHeight: 0.92 }}>
-          Feras Harah.
+          {`${profile.name}.`}
         </span>
         <span style={{ color: "#a5aab5", fontSize: 28, marginTop: 32 }}>
-          Building useful software — looking for a 2026–27 industrial placement.
+          {`Building useful software. ${profile.availability.sentence}`}
         </span>
       </div>
       <div style={{ background: "#8994ff", height: 5, width: 130 }} />

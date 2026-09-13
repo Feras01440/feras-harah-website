@@ -5,6 +5,21 @@ export const updatesIntro =
 
 export const updates = [
   {
+    slug: "september-2026",
+    title: "Where things stand this September",
+    excerpt:
+      "Still applying for a 2026–27 placement — which means I can start straight away.",
+    body: [
+      "The 2026–27 placement year has started and I’m still applying, so I can start straight away. If your team has a late-start industrial placement or an internship, I’d love to hear from you.",
+      "In the meantime I’m sharpening my Java and C++, working through data structures and algorithms, and still building Basha Pantry for WoodHouse Groceries.",
+    ],
+    category: "personal",
+    publishedAt: "2026-09-13",
+    publicationStatus: "published",
+    published: true,
+    isPlaceholder: false,
+  },
+  {
     slug: "placement-search-2026",
     title: "Placement season, open for business",
     excerpt:
@@ -14,7 +29,6 @@ export const updates = [
       "If you’re reading this because a CV or application pointed you here: the projects page is the best two minutes you can spend, and my inbox is open.",
     ],
     category: "site",
-    dateLabel: "July 2026",
     publishedAt: "2026-07-12",
     publicationStatus: "published",
     published: true,
@@ -27,10 +41,9 @@ export const updates = [
       "The hardest part of building an online store isn’t the store — it’s the data.",
     body: [
       "Basha Pantry — the Shopify store I’m building for WoodHouse Groceries — has taught me a lesson no tutorial mentions: the storefront is the easy bit. The real work is turning hundreds of physical products into clean data: consistent names, sensible categories, decent photos, accurate details.",
-      "It’s slow, unglamorous, and exactly the kind of work that makes the difference between a store that looks like a hobby and one that looks like a business. More on this when it launches.",
+      "It’s slow, unglamorous, and exactly the kind of work that makes the difference between a store that looks like a hobby and one that looks like a business.",
     ],
     category: "project",
-    dateLabel: "July 2026",
     publishedAt: "2026-07-12",
     publicationStatus: "published",
     published: true,
@@ -46,11 +59,13 @@ export const updates = [
       "I’ll add more when it is ready rather than filling the space with invented detail.",
     ],
     category: "site",
-    dateLabel: "June 2026",
+    publishedAt: "2026-07-11",
     publicationStatus: "published",
     published: true,
     isPlaceholder: false,
   },
 ] as const satisfies readonly Update[];
 
-export const publishedUpdates = updates.filter((update) => update.published);
+export const publishedUpdates = updates
+  .filter((update) => update.published)
+  .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
